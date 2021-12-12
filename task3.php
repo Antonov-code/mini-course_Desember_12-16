@@ -32,7 +32,7 @@ $array = [
 
         <?php
             foreach ($array as $item):
-                if ($item['link'] == true) {
+                if ($item['link']) {
                     ?><li><a href=" <?=$item['href']?> "> <?=$item['title']?> </a></li><?php
                 } else {
                     ?><li> <?=$item['title']?> </li><?php
