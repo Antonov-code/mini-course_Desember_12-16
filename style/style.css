@@ -73,4 +73,6 @@ img {
     font-size: 24px;
 }
 
-
+.banned {
+    opacity: 0.5;
+}
