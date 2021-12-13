@@ -2,6 +2,7 @@
 
 session_start();
 
+
 if (isset($_POST['password']) && isset($_POST['email'])){
     $password = $_POST['password'];
     $login = $_POST['email'];
@@ -15,15 +16,13 @@ if (isset($_POST['password']) && isset($_POST['email'])){
     // дальше говнокод, кажется можно сделать лучше
     if (!empty($result)){
 
-        foreach ($result as $row) {
-            if ( password_verify($password, $row["password"]) ){
+        foreach ($result as $hash) {
+            if ( password_verify($password, $hash["password"]) ){
 
                 $_SESSION['user']['id'] = $row["id"];
-                $_SESSION['user']['id'] = $row["login"];
+                $_SESSION['user']['login'] = $login;
 
-                $_SESSION['message'] = 'Вы вошли в аккаунт';
-
-                header('Location: task_14.php');
+                header('Location: task_15_handler.php');
                 exit;
             }
         }
@@ -33,7 +32,7 @@ if (isset($_POST['password']) && isset($_POST['email'])){
     
 }
 
-header('Location: task_14.php');
+header('Location: task_15.php');
 
 
 
