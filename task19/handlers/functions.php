@@ -57,7 +57,7 @@ function logout (){
 function get_messages ($limit){
     $pdo = connect_db ();
 
-    $sql = "SELECT * FROM `messages` ORDER BY `id` ASC LIMIT $limit";
+    $sql = "SELECT * FROM `messages` ORDER BY `id` DESC LIMIT $limit";
     $statement = $pdo -> prepare($sql);
     $statement -> execute();
     $result = $statement -> fetchAll(PDO::FETCH_ASSOC);
